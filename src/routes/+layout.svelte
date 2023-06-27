@@ -3,6 +3,10 @@
     import {LoggedInState, logOut} from '../utils/auth.js'
     import { goto } from '$app/navigation';
 
+    function UploadImage() {
+      goto ('/image/upload')
+    }
+
     function HomePage() {
       goto ('/')
     }
@@ -17,6 +21,9 @@
       {#if $LoggedInState}
         <button class="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded ml-3" on:click={logOut}>
           Logout
+        </button>
+        <button class="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded ml-3" on:click={UploadImage}>
+          Upload Image
         </button>
         {:else}
         <button class="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded ml-3" on:click={() => {window.location.href = '/login'}}>Login</button>
